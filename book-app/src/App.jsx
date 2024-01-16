@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import BookList from './BookList';
+import Genre from './Genre';
+import { useState } from 'react';
+import { books } from './books';
+import './App.css';
+
+
+const allGenres = ['all', ...new Set(books.map(bookItem => bookItem.genre))];
+//console.log(allGenres);
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [showBooks, setShowBooks] = useState(books);
+  const [genres, setGenres] = useState(allGenres);
+  //console.log(`genres from app components: ${genres}`);
+
+  const filterBooks = (genre) => {
+    if(genre === "all")
+    {
+      setShowBooks(books);
+      return;
+    }
+    const newBooks = books.filter(book => book.genre === genre);
+    setShowBooks(newBooks);  
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <section>
+      <h1 style={{textAlign: "center",color: "Brown",marginTop: "3.5rem"}}>Book App</h1>
+      <Genre genres={genres} filterBooks={filterBooks}/>
+      <BookList books={showBooks}/>
+    </section>
   )
 }
 

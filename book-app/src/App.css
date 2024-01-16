@@ -1,42 +1,74 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+body{
+  background: #e0e4e8d0;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.book-img{
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.book-list{
+  width: 90vw;
+  max-width: 900px;
+  margin: 5rem auto;
+  display: grid;
+  gap: 2rem;
+}
+
+@media  screen and (min-width: 768px) {
+  .book-list{
+    grid-template-columns: repeat(6,1fr);
   }
-  to {
-    transform: rotate(360deg);
-  }
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.book{
+  background-color: #e6ebed56;
+  border-radius: 0.4rem;
+  padding: 0.6rem 2rem;
+  background-color: #ebecf5;
+  box-shadow: #63636333 0px 2px 8px 0px;
 }
-
-.card {
-  padding: 2em;
+.book h3{
+  margin-top: 0.5rem;
+  font-weight: 400;
+  font-size: 0.78rem;
 }
-
-.read-the-docs {
-  color: #888;
+.book h5{
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  color: #a1a6dc;
+  font-size: 0.6rem;
+  margin-top: 0.19rem;
+}
+.book p{
+  color: #e06d6d;
+  margin-top: 0.7rem;
+  font-size: 0.96rem;
+}
+.buy-btn{
+  border: none;
+  background-image: linear-gradient(to right, #de81b3 0%, #d6348b 51%, #c5277b 100%);
+  padding: 0.24rem 0.7rem;
+  border-radius: 0.23rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+  color: #fff;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;;
+}
+.buy-btn:hover{
+  background-position: right center;
 }
